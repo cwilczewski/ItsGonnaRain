@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WEATHER</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="header"> <i class="wi wi-day-cloudy"></i>
+            <div class="header-text">
+                <h1 id="temp"></h1>
+                <h1>&#176;C</h1>
+                <h3>Home Sensor</h3> </div>
+        </div>
+        <div class="alert">
+            <div> <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                <h3>Looks like its going to rain soon!</h3> </div>
+        </div>
+        <div class="content">
+            <div  id="pressure-container" class="content-box" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">
+                <div> <i class="wi wi-barometer"></i>
+                    <p>Pressure</p>
+                    <h3 id="pressure"></h3> </div>
+            </div>
+            <div id="humidity-container" class="content-box" style="background-image: linear-gradient(to top, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);">
+                <div> <i class="wi wi-hot"></i>
+                    <p>Humidity</p>
+                    <h3 id="humidity"></h3> </div>
+            </div>
+            <div class="content-box" style="background-image: linear-gradient(to bottom, #00cdac 0%, #8ddad5 100%);">
+                <div> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <p>Location</p>
+                    <h3 id="location">Toronto, ON</h3> </div>
+            </div>
+            <div class="content-box" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
+                <div> <i class="fa fa-bolt" aria-hidden="true"></i>
+                    <p>Battery</p>
+                    <h3>Plugged In</h3> </div>
+            </div>
+        </div>
+        <div class="chart-box">
+            <canvas id="tempChart" class="chart-global" width="90%" height="100%" style="display: none;"></canvas>
+            <canvas id="pressChart" width="90%" class="chart-global" height="100%" style="display: none;"></canvas>
+            <canvas id="humChart" width="90%" class="chart-global" height="100%" style="display: none;"></canvas>
+            <button id="back">Back</button>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
